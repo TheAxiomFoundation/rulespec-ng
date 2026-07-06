@@ -1,0 +1,103 @@
+format: rulespec/v1
+module:
+  proof_validation:
+    required: true
+  source_verification:
+    corpus_citation_path: ng/statute/nigeria-tax-act-2025/30
+    corpus_citation_paths:
+      - ng/statute/nigeria-tax-act-2025/30
+  summary: |-
+    "The chargeable income of an individual, is the total income of that individual ascertained under the provisions of section 28 of this Act, less eligible deductions" (section 30(1)). Eligible deductions include the individual's contributions under the National Housing Fund, the National Health Insurance Scheme and the Pension Reform Act, interest on loans for developing an owner-occupied residential house, life-insurance or deferred-annuity premiums, and "rent relief of 20% of annual rent paid, subject to a maximum of N500,000, whichever is lower" (section 30(2)(a)). The Fourth Schedule taxes the income so ascertained (see the fourth-schedule module).
+rules:
+  - name: rent_relief_rate
+    kind: parameter
+    dtype: Rate
+    period: Year
+    source: Nigeria Tax Act 2025, section 30(2)(a)(vi)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: parameter
+            source:
+              corpus_citation_path: ng/statute/nigeria-tax-act-2025/30
+              excerpt: "rent relief of 20% of annual rent paid"
+    versions:
+      - effective_from: '2026-01-01'
+        formula: |-
+          0.20
+  - name: rent_relief_cap
+    kind: parameter
+    dtype: Money
+    unit: NGN
+    period: Year
+    source: Nigeria Tax Act 2025, section 30(2)(a)(vi)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: amount
+            source:
+              corpus_citation_path: ng/statute/nigeria-tax-act-2025/30
+              excerpt: "subject to a maximum of N500,000, whichever is lower"
+    versions:
+      - effective_from: '2026-01-01'
+        formula: |-
+          500000
+  - name: rent_relief_deduction
+    kind: derived
+    entity: Person
+    dtype: Money
+    unit: NGN
+    period: Year
+    source: Nigeria Tax Act 2025, section 30(2)(a)(vi)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: ng/statute/nigeria-tax-act-2025/30
+              excerpt: "rent relief of 20% of annual rent paid, subject to a maximum of N500,000, whichever is lower"
+    versions:
+      - effective_from: '2026-01-01'
+        formula: |-
+          min(max(0, annual_rent_paid) * rent_relief_rate, rent_relief_cap)
+  - name: eligible_deductions
+    kind: derived
+    entity: Person
+    dtype: Money
+    unit: NGN
+    period: Year
+    source: Nigeria Tax Act 2025, section 30(2)(a)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: ng/statute/nigeria-tax-act-2025/30
+              excerpt: "\"eligible deductions\" include payments made by the individual in a year of assessment in respect of"
+    versions:
+      - effective_from: '2026-01-01'
+        formula: |-
+          max(0, national_housing_fund_contributions) + max(0, national_health_insurance_scheme_contributions) + max(0, pension_reform_act_contributions) + max(0, owner_occupied_residential_loan_interest) + max(0, life_insurance_or_deferred_annuity_premiums) + rent_relief_deduction
+  - name: chargeable_income_of_individual
+    kind: derived
+    entity: Person
+    dtype: Money
+    unit: NGN
+    period: Year
+    source: Nigeria Tax Act 2025, section 30(1)
+    metadata:
+      proof:
+        atoms:
+          - path: versions[0].formula
+            kind: formula
+            source:
+              corpus_citation_path: ng/statute/nigeria-tax-act-2025/30
+              excerpt: "The chargeable income of an individual, is the total income of that individual ascertained under the provisions of section 28 of this Act, less eligible deductions."
+    versions:
+      - effective_from: '2026-01-01'
+        formula: |-
+          max(0, total_income - eligible_deductions)
