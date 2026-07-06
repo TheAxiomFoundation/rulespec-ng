@@ -1,0 +1,63 @@
+{
+  "generated_at": "2026-07-06",
+  "jurisdiction": "ng",
+  "focus": "Nigeria tax-benefit surface: individual income tax under the Nigeria Tax Act 2025 (PAYE and direct assessment), eligible deductions, social contributions, and transfer programmes.",
+  "scope": "nigeria_tax_benefit",
+  "jurisdiction_layers": {
+    "national": {
+      "namespace": "ng",
+      "description": "Individual income tax is federal law applied uniformly nationwide (Nigeria Tax Act 2025); state internal revenue services administer collection under the Nigeria Tax Administration Act 2025 but do not set the substantive rules encoded here. All encoded law lives under the single national ng/ namespace; a state layer would only be added if state-level substantive rules enter scope."
+    }
+  },
+  "purpose": "Machine-readable intake map from Nigeria tax-benefit tracks to upstream official source families, comparison references, and first RuleSpec encoding batches.",
+  "source_priority": [
+    "Federal Republic of Nigeria Official Gazette prints of Acts (Federal Government Printer, Lagos) — the authentic text of the Nigeria Tax Act 2025 and later amending Acts.",
+    "Nigeria Revenue Service (and state internal revenue service) rate tables, guides, and information circulars only after the governing Act is identified.",
+    "Official programme documentation for transfer programmes set administratively rather than by Act.",
+    "Pinned executable household-level comparison references for parity tests, if one ever becomes available; aggregate simulators and documentation are supporting benchmarks only."
+  ],
+  "current_blockers": [
+    {
+      "id": "no-household-oracle",
+      "description": "No executable Nigeria household oracle exists (Nigeria is not a SOUTHMOD country; no EUROMOD-platform Nigeria model is publicly distributed). Oracle parity tests are deferred; see data/oracles/oracle-index.json."
+    }
+  ],
+  "tracks": [
+    {
+      "id": "individual-income-tax-rate-schedule",
+      "namespace": "ng",
+      "bucket": "statutes",
+      "primary_source": "Nigeria Tax Act 2025, section 58 and Fourth Schedule (individuals' income tax rates), with the section 58 exception for individuals earning the Minimum Wage.",
+      "agency_surface": "Nigeria Revenue Service / state IRS PAYE tables.",
+      "status": "planned",
+      "first_encoding_batch": true
+    },
+    {
+      "id": "chargeable-income-and-rent-relief",
+      "namespace": "ng",
+      "bucket": "statutes",
+      "primary_source": "Nigeria Tax Act 2025, section 30 (chargeable income: total income less eligible deductions; rent relief of 20% of annual rent paid capped at N500,000).",
+      "agency_surface": "Nigeria Revenue Service guidance on deduction claims (sections 31-32 procedure).",
+      "status": "planned",
+      "first_encoding_batch": true
+    },
+    {
+      "id": "other-eligible-deductions",
+      "namespace": "ng",
+      "bucket": "statutes",
+      "primary_source": "Nigeria Tax Act 2025, section 30(2)(a)(i)-(v): National Housing Fund, National Health Insurance Scheme and Pension Reform Act contributions, owner-occupied mortgage interest, and life-insurance/deferred-annuity premiums.",
+      "agency_surface": "Scheme-specific contribution rates under their own Acts.",
+      "status": "planned",
+      "first_encoding_batch": false
+    },
+    {
+      "id": "individual-chargeable-gains",
+      "namespace": "ng",
+      "bucket": "statutes",
+      "primary_source": "Nigeria Tax Act 2025, Part VIII (chargeable gains, replacing the Capital Gains Tax Act for individuals).",
+      "agency_surface": "Nigeria Revenue Service guidance.",
+      "status": "planned",
+      "first_encoding_batch": false
+    }
+  ]
+}

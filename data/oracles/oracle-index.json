@@ -1,0 +1,13 @@
+{
+  "generated_at": "2026-07-06",
+  "jurisdiction": "ng",
+  "focus": "Nigeria tax-benefit surface: individual income tax under the Nigeria Tax Act 2025 (PAYE and direct assessment), eligible deductions, social contributions, and transfer programmes needed for household-level calculations.",
+  "purpose": "Household-level comparison-oracle and supporting-source references for Nigeria Axiom coverage. None of these are legal authority.",
+  "oracle_scope": "A RuleSpec oracle must be an executable, pinned external calculator that accepts household-level inputs and returns household-level tax-benefit outputs comparable to Axiom outputs. Aggregate simulators, distributional reports, parameter documentation, and public model summaries are supporting references only, not oracles.",
+  "oracles": [],
+  "availability_note": {
+    "checked_at": "2026-07-06",
+    "status": "no_household_oracle_exists",
+    "detail": "Nigeria is not a SOUTHMOD country and no EUROMOD-platform Nigeria model is publicly distributed. Research microsimulation exercises built on the Nigerian Living Standards Survey exist in the literature but none is available as an executable, pinned calculator. Candidate surfaces to watch: any future TaxDev (IFS/ODI) Nigeria model, any UNU-WIDER Nigeria addition, and Nigeria Revenue Service PAYE calculators (administrative surfaces, not independent models). Until an oracle attaches, this repo encodes source-first from the gazette Acts and oracle parity tests are deferred."
+  }
+}
