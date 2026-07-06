@@ -1,0 +1,41 @@
+{
+  "applied_files": [
+    {
+      "path": "ng/statutes/nigeria-tax-act-2025/fourth-schedule.test.yaml",
+      "sha256": "6cc970560c0f80e8a4147b90e636aadd19e5ebb5017a075fefa4c7c9c52d5304"
+    },
+    {
+      "path": "ng/statutes/nigeria-tax-act-2025/fourth-schedule.yaml",
+      "sha256": "b01778cd1a0a6b0737d2f3a9c2b727ad23887acb20286d55f3f047c379daadfe"
+    }
+  ],
+  "axiom_encode_git": {
+    "commit": "b4dfa63704d92cc220b7a8f1bf967200e254fada",
+    "dirty_tracked": false,
+    "root": "/Users/maxghenis/TheAxiomFoundation/axiom-encode-naira",
+    "version": "0.2.1179",
+    "version_commit": "b4dfa63704d92cc220b7a8f1bf967200e254fada"
+  },
+  "axiom_encode_version": "0.2.1179",
+  "backend": "manual",
+  "citation": "ng:statutes/nigeria-tax-act-2025/fourth-schedule",
+  "context_manifest_file": null,
+  "context_manifest_sha256": null,
+  "generated_at": "2026-07-06T23:18:19.200778+00:00",
+  "generated_output_file": "/var/folders/9l/_wztzgbx7mgc7l1r0416cy7m0000gn/T/tmpl60ny7_3/sign-applied-files/ng/statutes/nigeria-tax-act-2025/fourth-schedule.yaml",
+  "generated_output_root": "/var/folders/9l/_wztzgbx7mgc7l1r0416cy7m0000gn/T/tmpl60ny7_3",
+  "generated_output_sha256": "b01778cd1a0a6b0737d2f3a9c2b727ad23887acb20286d55f3f047c379daadfe",
+  "generation_prompt_sha256": null,
+  "model": "",
+  "run_id": null,
+  "runner": "manual-attestation",
+  "schema_version": "axiom-encode/applied-rulespec/v1",
+  "signature": {
+    "algorithm": "hmac-sha256",
+    "key_id": "axiom-encode-apply-v1",
+    "value": "a6faccf19b83906dae1a3832336eed17ec0357d18e35b17c59b066714794154c"
+  },
+  "tool": "axiom-encode sign-applied-files",
+  "trace_file": null,
+  "trace_sha256": null
+}

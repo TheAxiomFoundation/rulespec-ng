@@ -1,0 +1,87 @@
+# Companion fixtures for Nigeria Tax Act 2025 section 30 (chargeable income
+# of individuals: total income less eligible deductions, including rent
+# relief). Expected values are computed by hand from the verbatim amounts
+# in the cited corpus provision, then verified digit-by-digit through the
+# engine. Fixture provenance is manual (orchestrator-computed) per the
+# interim convention in axiom-encode#1060.
+#
+# Section 30(2)(a)(vi): rent relief of 20% of annual rent paid, subject to
+# a maximum of N500,000, whichever is lower.
+# Validation year: 2026 (first year of assessment under the Act).
+
+- name: rent_relief_below_cap_is_20_percent_of_rent
+  # 1,000,000 x 0.20 = 200,000 < 500,000 cap -> relief 200,000.
+  # No other deductions; chargeable income = 3,000,000 - 200,000 = 2,800,000.
+  period:
+    period_kind: tax_year
+    start: '2026-01-01'
+    end: '2026-12-31'
+  input:
+    ng:statutes/nigeria-tax-act-2025/30#input.total_income: 3000000
+    ng:statutes/nigeria-tax-act-2025/30#input.annual_rent_paid: 1000000
+    ng:statutes/nigeria-tax-act-2025/30#input.national_housing_fund_contributions: 0
+    ng:statutes/nigeria-tax-act-2025/30#input.national_health_insurance_scheme_contributions: 0
+    ng:statutes/nigeria-tax-act-2025/30#input.pension_reform_act_contributions: 0
+    ng:statutes/nigeria-tax-act-2025/30#input.owner_occupied_residential_loan_interest: 0
+    ng:statutes/nigeria-tax-act-2025/30#input.life_insurance_or_deferred_annuity_premiums: 0
+  output:
+    ng:statutes/nigeria-tax-act-2025/30#rent_relief_deduction: 200000
+    ng:statutes/nigeria-tax-act-2025/30#chargeable_income_of_individual: 2800000
+
+- name: rent_relief_capped_at_500000
+  # 4,000,000 x 0.20 = 800,000 > 500,000 cap -> relief 500,000 ("whichever
+  # is lower"). Chargeable income = 6,000,000 - 500,000 = 5,500,000.
+  period:
+    period_kind: tax_year
+    start: '2026-01-01'
+    end: '2026-12-31'
+  input:
+    ng:statutes/nigeria-tax-act-2025/30#input.total_income: 6000000
+    ng:statutes/nigeria-tax-act-2025/30#input.annual_rent_paid: 4000000
+    ng:statutes/nigeria-tax-act-2025/30#input.national_housing_fund_contributions: 0
+    ng:statutes/nigeria-tax-act-2025/30#input.national_health_insurance_scheme_contributions: 0
+    ng:statutes/nigeria-tax-act-2025/30#input.pension_reform_act_contributions: 0
+    ng:statutes/nigeria-tax-act-2025/30#input.owner_occupied_residential_loan_interest: 0
+    ng:statutes/nigeria-tax-act-2025/30#input.life_insurance_or_deferred_annuity_premiums: 0
+  output:
+    ng:statutes/nigeria-tax-act-2025/30#rent_relief_deduction: 500000
+    ng:statutes/nigeria-tax-act-2025/30#chargeable_income_of_individual: 5500000
+
+- name: chargeable_income_nets_all_eligible_deductions
+  # Pension 400,000 + NHF 125,000 + rent relief min(0.20 x 1,000,000,
+  # 500,000) = 200,000 -> eligible deductions 725,000.
+  # Chargeable income = 5,000,000 - 725,000 = 4,275,000.
+  period:
+    period_kind: tax_year
+    start: '2026-01-01'
+    end: '2026-12-31'
+  input:
+    ng:statutes/nigeria-tax-act-2025/30#input.total_income: 5000000
+    ng:statutes/nigeria-tax-act-2025/30#input.annual_rent_paid: 1000000
+    ng:statutes/nigeria-tax-act-2025/30#input.national_housing_fund_contributions: 125000
+    ng:statutes/nigeria-tax-act-2025/30#input.national_health_insurance_scheme_contributions: 0
+    ng:statutes/nigeria-tax-act-2025/30#input.pension_reform_act_contributions: 400000
+    ng:statutes/nigeria-tax-act-2025/30#input.owner_occupied_residential_loan_interest: 0
+    ng:statutes/nigeria-tax-act-2025/30#input.life_insurance_or_deferred_annuity_premiums: 0
+  output:
+    ng:statutes/nigeria-tax-act-2025/30#rent_relief_deduction: 200000
+    ng:statutes/nigeria-tax-act-2025/30#eligible_deductions: 725000
+    ng:statutes/nigeria-tax-act-2025/30#chargeable_income_of_individual: 4275000
+
+- name: no_deductions_passes_total_income_through
+  # No eligible deductions -> chargeable income equals total income.
+  period:
+    period_kind: tax_year
+    start: '2026-01-01'
+    end: '2026-12-31'
+  input:
+    ng:statutes/nigeria-tax-act-2025/30#input.total_income: 3000000
+    ng:statutes/nigeria-tax-act-2025/30#input.annual_rent_paid: 0
+    ng:statutes/nigeria-tax-act-2025/30#input.national_housing_fund_contributions: 0
+    ng:statutes/nigeria-tax-act-2025/30#input.national_health_insurance_scheme_contributions: 0
+    ng:statutes/nigeria-tax-act-2025/30#input.pension_reform_act_contributions: 0
+    ng:statutes/nigeria-tax-act-2025/30#input.owner_occupied_residential_loan_interest: 0
+    ng:statutes/nigeria-tax-act-2025/30#input.life_insurance_or_deferred_annuity_premiums: 0
+  output:
+    ng:statutes/nigeria-tax-act-2025/30#eligible_deductions: 0
+    ng:statutes/nigeria-tax-act-2025/30#chargeable_income_of_individual: 3000000

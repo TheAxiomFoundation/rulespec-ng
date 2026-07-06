@@ -11,7 +11,7 @@
   },
   "purpose": "Machine-readable intake map from Nigeria tax-benefit tracks to upstream official source families, comparison references, and first RuleSpec encoding batches.",
   "source_priority": [
-    "Federal Republic of Nigeria Official Gazette prints of Acts (Federal Government Printer, Lagos) — the authentic text of the Nigeria Tax Act 2025 and later amending Acts.",
+    "Federal Republic of Nigeria Official Gazette prints of Acts (Federal Government Printer, Lagos) \u2014 the authentic text of the Nigeria Tax Act 2025 and later amending Acts.",
     "Nigeria Revenue Service (and state internal revenue service) rate tables, guides, and information circulars only after the governing Act is identified.",
     "Official programme documentation for transfer programmes set administratively rather than by Act.",
     "Pinned executable household-level comparison references for parity tests, if one ever becomes available; aggregate simulators and documentation are supporting benchmarks only."
@@ -29,8 +29,9 @@
       "bucket": "statutes",
       "primary_source": "Nigeria Tax Act 2025, section 58 and Fourth Schedule (individuals' income tax rates), with the section 58 exception for individuals earning the Minimum Wage.",
       "agency_surface": "Nigeria Revenue Service / state IRS PAYE tables.",
-      "status": "planned",
-      "first_encoding_batch": true
+      "status": "encoded",
+      "first_encoding_batch": true,
+      "rulespec_module": "ng/statutes/nigeria-tax-act-2025/fourth-schedule.yaml"
     },
     {
       "id": "chargeable-income-and-rent-relief",
@@ -38,8 +39,9 @@
       "bucket": "statutes",
       "primary_source": "Nigeria Tax Act 2025, section 30 (chargeable income: total income less eligible deductions; rent relief of 20% of annual rent paid capped at N500,000).",
       "agency_surface": "Nigeria Revenue Service guidance on deduction claims (sections 31-32 procedure).",
-      "status": "planned",
-      "first_encoding_batch": true
+      "status": "encoded",
+      "first_encoding_batch": true,
+      "rulespec_module": "ng/statutes/nigeria-tax-act-2025/30.yaml"
     },
     {
       "id": "other-eligible-deductions",
