@@ -121,3 +121,22 @@
     ng:statutes/nigeria-tax-act-2025/fourth-schedule#input.earns_minimum_wage: true
   output:
     ng:statutes/nigeria-tax-act-2025/fourth-schedule#individual_income_tax_payable: 0
+
+- name: pwc_worldwide_tax_summaries_sample_tax_on_22600000
+  # External worked example (listing gate 2), continued from the section 30
+  # sample: PwC computes tax on taxable income NGN 22,600,000 as
+  #   First    800,000 at  0% =         0
+  #   Next   2,200,000 at 15% =   330,000
+  #   Next   9,000,000 at 18% = 1,620,000
+  #   Next (22,600,000 - 12,000,000) = 10,600,000 at 21% = 2,226,000
+  #   Total PAYE payable                              = 4,176,000
+  # matching this module exactly.
+  period:
+    period_kind: tax_year
+    start: '2026-01-01'
+    end: '2026-12-31'
+  input:
+    ng:statutes/nigeria-tax-act-2025/fourth-schedule#input.chargeable_income: 22600000
+    ng:statutes/nigeria-tax-act-2025/fourth-schedule#input.earns_minimum_wage: false
+  output:
+    ng:statutes/nigeria-tax-act-2025/fourth-schedule#individual_income_tax_payable: 4176000

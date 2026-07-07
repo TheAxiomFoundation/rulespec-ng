@@ -85,3 +85,29 @@
   output:
     ng:statutes/nigeria-tax-act-2025/30#eligible_deductions: 0
     ng:statutes/nigeria-tax-act-2025/30#chargeable_income_of_individual: 3000000
+
+- name: pwc_worldwide_tax_summaries_sample_reliefs_and_chargeable_income
+  # External worked example (listing gate 2): PwC Worldwide Tax Summaries,
+  # Nigeria — sample personal income tax calculation under the Nigeria Tax
+  # Act 2025 regime (last reviewed 29 May 2026; retrieved 2026-07-06).
+  # Gross annual income NGN 25,000,000; annual rent NGN 2,000,000 -> rent
+  # relief min(0.20 x 2,000,000, 500,000) = 400,000 ("lower of NGN 500,000
+  # or 20% of rent"); pension contributions NGN 2,000,000; no NHF assumed.
+  # Total reliefs 2,400,000; taxable income 25,000,000 - 2,400,000
+  # = 22,600,000 — matching PwC's figures exactly.
+  period:
+    period_kind: tax_year
+    start: '2026-01-01'
+    end: '2026-12-31'
+  input:
+    ng:statutes/nigeria-tax-act-2025/30#input.total_income: 25000000
+    ng:statutes/nigeria-tax-act-2025/30#input.annual_rent_paid: 2000000
+    ng:statutes/nigeria-tax-act-2025/30#input.national_housing_fund_contributions: 0
+    ng:statutes/nigeria-tax-act-2025/30#input.national_health_insurance_scheme_contributions: 0
+    ng:statutes/nigeria-tax-act-2025/30#input.pension_reform_act_contributions: 2000000
+    ng:statutes/nigeria-tax-act-2025/30#input.owner_occupied_residential_loan_interest: 0
+    ng:statutes/nigeria-tax-act-2025/30#input.life_insurance_or_deferred_annuity_premiums: 0
+  output:
+    ng:statutes/nigeria-tax-act-2025/30#rent_relief_deduction: 400000
+    ng:statutes/nigeria-tax-act-2025/30#eligible_deductions: 2400000
+    ng:statutes/nigeria-tax-act-2025/30#chargeable_income_of_individual: 22600000
