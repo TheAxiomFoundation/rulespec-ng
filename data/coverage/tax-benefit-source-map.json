@@ -60,6 +60,36 @@
       "agency_surface": "Nigeria Revenue Service guidance.",
       "status": "planned",
       "first_encoding_batch": false
+    },
+    {
+      "id": "social-contributions",
+      "namespace": "ng",
+      "bucket": "statutes",
+      "primary_source": "Pension Reform Act 2014 (8% employee and 10% employer contributions), National Housing Fund Act (2.5% of basic income), and National Health Insurance Authority Act contributions - the obligations behind the section 30 deduction pass-throughs.",
+      "agency_surface": "PenCom, FMBN and NHIA contribution guidance.",
+      "status": "planned",
+      "first_encoding_batch": false,
+      "note": "Makes net-income calculations real; each is a single-act slice."
+    },
+    {
+      "id": "nassp-cash-transfer",
+      "namespace": "ng",
+      "bucket": "policies",
+      "primary_source": "National Social Safety Nets Programme conditional cash transfer: administratively set transfer amounts targeted through the National Social Register; official programme manuals and Federal Ministry of Humanitarian Affairs documentation.",
+      "agency_surface": "NASSCO / National Cash Transfer Office.",
+      "status": "planned",
+      "first_encoding_batch": false,
+      "note": "The main federal cash benefit; source hunt is the risk, not the encoding."
+    },
+    {
+      "id": "vat",
+      "namespace": "ng",
+      "bucket": "statutes",
+      "primary_source": "Nigeria Tax Act 2025 VAT chapters (7.5% rate with expanded zero-ratings and exemptions for basic food, health and education), replacing the Value Added Tax Act.",
+      "agency_surface": "Nigeria Revenue Service VAT guidance.",
+      "status": "planned",
+      "first_encoding_batch": false,
+      "note": "Consumption incidence; separable from the household income core. Rate and exemption schedules must be captured from the gazette print already in corpus (same document as the individual-core slices)."
     }
   ]
 }
