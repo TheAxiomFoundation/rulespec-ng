@@ -4,8 +4,6 @@ module:
     required: true
   source_verification:
     corpus_citation_path: ng/statute/nigeria-tax-act-2025/30
-    corpus_citation_paths:
-      - ng/statute/nigeria-tax-act-2025/30
   summary: |-
     "The chargeable income of an individual, is the total income of that individual ascertained under the provisions of section 28 of this Act, less eligible deductions" (section 30(1)). Eligible deductions include the individual's contributions under the National Housing Fund, the National Health Insurance Scheme and the Pension Reform Act, interest on loans for developing an owner-occupied residential house, life-insurance or deferred-annuity premiums, and "rent relief of 20% of annual rent paid, subject to a maximum of N500,000, whichever is lower" (section 30(2)(a)). The Fourth Schedule taxes the income so ascertained (see the fourth-schedule module).
 rules:
@@ -96,7 +94,7 @@ rules:
             kind: formula
             source:
               corpus_citation_path: ng/statute/nigeria-tax-act-2025/30
-              excerpt: "The chargeable income of an individual, is the total income of that individual ascertained under the provisions of section 28 of this Act, less eligible deductions."
+              excerpt: "that individual ascertained under the provisions of section 28 of this Act, less eligible deductions."
     versions:
       - effective_from: '2026-01-01'
         formula: |-
