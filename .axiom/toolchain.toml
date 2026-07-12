@@ -1,10 +1,7 @@
-# Pinned validation toolchain (full commit SHAs; see the org
-# validate-rulespec workflow). Bump deliberately — PRs that change this
-# file trigger full-repository revalidation.
+# Canonical corpus binding (axiom-encode#1101). This repository consumes
+# exactly one immutable signed corpus release; the shared validate workflow
+# verifies the release object signature, content hash, and waiver-set hash.
 [toolchain]
-axiom_encode_version = "0.2.1179"
-axiom_encode_ref = "f79836864455a3a869440397c15e0557ced64cdf"
-axiom_rules_engine_ref = "b726a9dfa421dde267b8faae01038779d0710fd3"
-axiom_corpus_ref = "025f5d98e446cd4bf26961e0a3249b90238b736b"
-# Canonical-targets checkout for cross-repo validation (rulespec-us main).
-rulespec_us_ref = "09960abf54c265201e62a6d6df9e266851b0fb6e"
+axiom_corpus_release = "ng-rulespec-2026-07-10"
+axiom_corpus_release_content_sha256 = "7544668dc5d4c37f01fb0cd97090a8136828d65bffe2dcd074cb6f355e69a692"
+validation_waiver_set_sha256 = "3eeb507e79ec997a4ecf91155f5d10a30aa9a71ce8530191c92898e6fb033ef4"
