@@ -94,7 +94,7 @@ rules:
             kind: formula
             source:
               corpus_citation_path: ng/statute/nigeria-tax-act-2025/30
-              excerpt: "that individual ascertained under the provisions of section 28 of this Act, less eligible deductions."
+              excerpt: "The chargeable income of an individual, is the total income of that individual ascertained under the provisions of section 28 of this Act, less eligible deductions."
     versions:
       - effective_from: '2026-01-01'
         formula: |-

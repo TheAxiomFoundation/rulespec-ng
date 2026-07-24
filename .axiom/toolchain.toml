@@ -2,6 +2,6 @@
 # exactly one immutable signed corpus release; the shared validate workflow
 # verifies the release object signature, content hash, and waiver-set hash.
 [toolchain]
-axiom_corpus_release = "ng-rulespec-2026-07-10"
-axiom_corpus_release_content_sha256 = "7544668dc5d4c37f01fb0cd97090a8136828d65bffe2dcd074cb6f355e69a692"
+axiom_corpus_release = "ng-rulespec-2026-07-22"
+axiom_corpus_release_content_sha256 = "ec5e6351735c9c11737fee3b51247013cb4436b9c3db89213a2918d10a5cde12"
 validation_waiver_set_sha256 = "3eeb507e79ec997a4ecf91155f5d10a30aa9a71ce8530191c92898e6fb033ef4"
