@@ -42,7 +42,7 @@ Every policy-bearing monetary value — currency parameters, currency parameter-
 
 ## Listing gates (app visibility)
 
-This lane is marked `app_visibility = "experimental"` in `.axiom/registry.toml`, which keeps its encodings off the axiom-foundation.org app surfaces (encoded search, jurisdiction tiles, navigation encoding badges) while it matures; corpus provisions remain visible under release-scopes gating. Flip the marker to `"public"` in a one-line PR when all four gates hold:
+This lane is marked `app_visibility = "experimental"` in `.axiom/registry.toml`, which keeps its encodings off the axiom.org app surfaces (encoded search, jurisdiction tiles, navigation encoding badges) while it matures; corpus provisions remain visible under release-scopes gating. Flip the marker to `"public"` in a one-line PR when all four gates hold:
 
 1. **Composed end-to-end calculation** — an axiom-programs compose spec chains the modules so the flagship calculation (gross income to individual income-tax liability) runs as one program, not as input-linked fragments. Status: **open** (tracked in the listing-gates issue).
 2. **Independent numerical validation** — a household oracle is attached, or, until one exists, independently published worked examples are reproduced exactly as companion fixtures citing their sources. Status: **partially met** — the PwC Worldwide Tax Summaries sample computation under the Nigeria Tax Act 2025 (NGN 25,000,000 gross; rent and pension reliefs; NGN 4,176,000 tax) is reproduced across both modules' fixtures. No Nigeria household oracle exists (not a SOUTHMOD country); revisit if one appears.
